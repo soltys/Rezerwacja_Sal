@@ -1,0 +1,60 @@
+<!DOCTYPE html 
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en" />
+	<meta http-equiv="Creation-Date" content="Fri, 19 Oct 2012 14:55:25 GMT" />
+	<meta name="Author" content="Agata Grabowska, Patryk Diak" />
+	<meta name="Keywords" content="booking" /> 
+	<link rel="icon" type="image/ico" href="<?php echo $this->baseUrl('img/icon/icon.ico'); ?>" />
+	<title>Reservation</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/style.css'); ?>" />
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="top">
+		<div id="logo" style="width: 81px; height: 35px">
+			<p>Logo</p>
+		</div>
+	
+		<div id="socialMedia">
+			<p>Znajdź nas</p>
+			<a href="http://www.facebook.com" /><img src="<?php echo $this->baseUrl('img/icon/facebook.png'); ?>" style="width: 24px; height: 24px" /></a>
+			<a href="http://www.twitter.com" /><img src="<?php echo $this->baseUrl('img/icon/twitter.png'); ?>" style="width: 24px; height: 24px" /></a>
+		</div>
+	</div>
+	
+	<div id="topnav">
+		<ul>
+                        <li><a href="<?php echo $this->url(array(), 'home'); ?>">Strona główna</a></li>
+			<li><a href="<?php echo $this->url(array(), 'idea'); ?>">Idea</a></li>
+			<li><a href="<?php echo $this->url(array(), 'lectures'); ?>">Prelekcje</a></li>
+			<li><a href="<?php echo $this->url(array(), 'equipment'); ?>">Wyposażenie</a></li>
+			<li><a href="<?php echo $this->url(array(), 'login'); ?>">Logowanie</a></li>
+			<li><a href="<?php echo $this->url(array(), 'contact'); ?>">Kontakt</a></li>
+		</ul>
+	</div>
+	
+	<div id="banner">
+		<img src="<?php echo $this->baseUrl('img/banner(1).jpg'); ?>" width="900" />
+	</div>
+	
+	<div id="subbanner">
+		<p>16 sal wykładowych, 47 sal seminaryjnych wposażonych w nowoczesny sprzęt oraz odpowiednie nagłośnienie. Idealne warunki do prowadzenia prelekcji.</p>
+	</div>
+	
+    
+        <?php echo $this->layout()->content; ?>
+    
+    
+	<div id="footer">
+		<p>© Nazwa 2012 Wszelkie prawa zastrzeżone.</p>
+	</div>
+</div>
+</body>
+
+</html>
