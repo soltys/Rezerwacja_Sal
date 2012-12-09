@@ -17,14 +17,33 @@
           <actionMethod actionName="contact"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Login">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="login"/>
+          <actionMethod actionName="registration"/>
+          <actionMethod actionName="help"/>
+          <actionMethod actionName="logout"/>
+        </controllerFile>
+        <controllerFile controllerName="AfterLogin">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory>
+        <formFile formName="LoginForm"/>
+        <formFile formName="Person"/>
+      </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>
         </layoutScriptsDirectory>
       </layoutsDirectory>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="Users"/>
+          <dbTableFile dbTableName="UserDb"/>
+        </dbTableDirectory>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
@@ -53,6 +72,24 @@
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="contact"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="registration"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="help"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="AfterLogin">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -80,7 +117,11 @@
       <publicIndexFile filesystemName="index.php"/>
       <htaccessFile filesystemName=".htaccess"/>
     </publicDirectory>
-    <projectProvidersDirectory enabled="false"/>
+    <projectProvidersDirectory>
+      <projectProviderFile projectProviderName="users" actionNames=""/>
+      <projectProviderFile projectProviderName="user" actionNames=""/>
+      <projectProviderFile projectProviderName="user" actionNames="create"/>
+    </projectProvidersDirectory>
     <temporaryDirectory enabled="false"/>
     <testsDirectory>
       <testPHPUnitConfigFile filesystemName="phpunit.xml"/>
