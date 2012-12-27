@@ -37,7 +37,7 @@ class LoginController extends Zend_Controller_Action
               /** zwraca identyfikator w postaci stałej klasy Zend_Auth_Result dla określenia powodu nieudanego
                *  uwierzytelniania lub sprawdzenia czy uwierzytelnianie się udało.
                */
-              switch ($result->getCode()) 
+ switch ($result->getCode()) 
               {
                 case Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND:
                     /** obsługujemy nieistniejącą tożsamość **/
@@ -50,7 +50,7 @@ class LoginController extends Zend_Controller_Action
                 break;
 
                 case Zend_Auth_Result::SUCCESS:
-                    return $this->_helper->redirectot('afterlogin','index','default');
+                    return $this->_helper->redirector('index','inlog','default');
                 break;
 
                 default:
@@ -63,7 +63,26 @@ class LoginController extends Zend_Controller_Action
 
     public function registrationAction()
     {
-        $this->view->form = new Application_Form_Person();
+        $form = new Application_Form_Person();
+        $this->view->form = $form; 
+     
+        if($this->_request->isPost())
+        {
+            $post_data = $this->_request->getPost();
+            $PersonDb = new Application_Model_DbTable_PersonDb();
+           
+            //var_dump($post_data);
+            //isValid() - argument przyjmuje tablice z danymi przesłanymi przez POST
+            if($form->isValid($post_data))
+            {
+                $PersonDb->insert($post_data);
+                return $this->_helper->redirector('afterreg','index','default');
+            }
+            else
+            {
+                $form->populate($post_data);
+            }
+        }
     }
 
     public function helpAction()
@@ -77,9 +96,11 @@ class LoginController extends Zend_Controller_Action
         $auth->clearIdentity();
         
         /** przekierowanie na stronę login/index **/
-        return $this->_helper->redirector('login','index','default');
+        return $this->_helper->redirector('auth','index','default');
     }
 }
+
+
 
 
 

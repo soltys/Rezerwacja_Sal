@@ -2,6 +2,7 @@
 
 class IndexController extends Zend_Controller_Action
 {
+
     public function init()
     {
         /* Initialize action controller here */
@@ -10,6 +11,7 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
        $users = new Application_Model_DbTable_UserDb(); 
+       /* metoda zwraca cała zawartość bazy danych */
        $this->view->users = $users->fetchAll();  
     }
 
@@ -37,7 +39,25 @@ class IndexController extends Zend_Controller_Action
     {
         // action body
     }
+
+    public function logoutAction()
+    {
+        // action body
+    }
+
+    public function afterregAction()
+    {
+        // action body
+    }
+
+
 }
+
+
+
+
+
+
 
 
 

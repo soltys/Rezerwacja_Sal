@@ -15,6 +15,9 @@
           <actionMethod actionName="equipment"/>
           <actionMethod actionName="login"/>
           <actionMethod actionName="contact"/>
+          <actionMethod actionName="logout"/>
+          <actionMethod actionName="afterReg"/>
+          <actionMethod actionName="afterreg"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Login">
@@ -23,8 +26,15 @@
           <actionMethod actionName="registration"/>
           <actionMethod actionName="help"/>
           <actionMethod actionName="logout"/>
+          <actionMethod actionName="correctReg"/>
         </controllerFile>
         <controllerFile controllerName="AfterLogin">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Afterlog">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Inlog">
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
@@ -42,7 +52,10 @@
           <dbTableFile dbTableName="User"/>
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="UserDb"/>
+          <dbTableFile dbTableName="PersonDb"/>
         </dbTableDirectory>
+        <modelFile modelName="Person"/>
+        <modelFile modelName="PersonDb"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -89,6 +102,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="AfterLogin">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Afterlog">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Inlog">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="correctReg"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="afterReg"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="afterreg"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

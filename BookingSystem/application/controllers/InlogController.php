@@ -1,15 +1,12 @@
 <?php
 
-class AfterLoginController extends Zend_Controller_Action
+class InlogController extends Zend_Controller_Action
 {
-    /** zabezpieczenie dostępu do akcji kontrolera
-     *  metoda wykonywana przed metodami akcji kontrolera
-     */
     public function preDispatch() {
         $auth = Zend_Auth::getInstance(); 
         if(!$auth->hasIdentity())
         {
-            return $this->_helper->redirectot('login','index','default');
+            return $this->_helper->redirector('login','index','default');
         }
         $this->view->identity = $auth->getIdentity(); 
     }
@@ -23,5 +20,7 @@ class AfterLoginController extends Zend_Controller_Action
     {
         // action body
     }
+
+
 }
 
