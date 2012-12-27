@@ -2,7 +2,6 @@
 
 class LoginController extends Zend_Controller_Action
 {
-
     public function init()
     {
         /* Initialize action controller here */
@@ -75,6 +74,7 @@ class LoginController extends Zend_Controller_Action
             //isValid() - argument przyjmuje tablice z danymi przesłanymi przez POST
             if($form->isValid($post_data))
             {
+                unset($post_data['create']);
                 $PersonDb->insert($post_data);
                 return $this->_helper->redirector('afterreg','index','default');
             }
