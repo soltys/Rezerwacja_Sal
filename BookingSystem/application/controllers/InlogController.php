@@ -2,7 +2,9 @@
 
 class InlogController extends Zend_Controller_Action
 {
-    public function preDispatch() {
+
+    public function preDispatch()
+    {
         $auth = Zend_Auth::getInstance(); 
         if(!$auth->hasIdentity())
         {
@@ -10,7 +12,7 @@ class InlogController extends Zend_Controller_Action
         }
         $this->view->identity = $auth->getIdentity(); 
     }
-    
+
     public function init()
     {
         /* Initialize action controller here */
@@ -21,6 +23,21 @@ class InlogController extends Zend_Controller_Action
         // action body
     }
 
+    public function eventAction()
+    {
+        // action body
+    }
+
+    public function logoutAction()
+    {
+        $auth = Zend_Auth::getInstance();
+        $auth->clearIdentity();
+    }
+
 
 }
+
+
+
+
 

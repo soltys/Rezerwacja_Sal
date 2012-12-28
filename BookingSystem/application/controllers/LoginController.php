@@ -89,15 +89,6 @@ class LoginController extends Zend_Controller_Action
     {
         // action body
     }
-
-    public function logoutAction()
-    {
-        $auth = Zend_Auth::getInstance();
-        $auth->clearIdentity();
-        
-        /** przekierowanie na stronę login/index **/
-        return $this->_helper->redirector('auth','index','default');
-    }
 }
 
 
