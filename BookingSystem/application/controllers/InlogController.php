@@ -25,7 +25,26 @@ class InlogController extends Zend_Controller_Action
 
     public function eventAction()
     {
-        // action body
+        $form = new Application_Form_Event();
+        $this->view->event = $form; 
+        
+        if($this->_request->isPost())
+        {
+            $post_data = $this->_request->getPost();
+            $EventDb = new Application_Model_DbTable_Event();
+
+            //isValid() - argument przyjmuje tablice z danymi przesłanymi przez POST
+            if($form->isValid($post_data))
+            {
+                //unset($post_data['add']);
+                //$PersonDb->insert($post_data);
+                return $this->_helper->redirector('afteradd','inlog','default');
+            }
+            else
+            {
+                $form->populate($post_data);
+            }
+        }
     }
 
     public function logoutAction()
@@ -34,8 +53,13 @@ class InlogController extends Zend_Controller_Action
         $auth->clearIdentity();
     }
 
-
+    public function afteraddAction()
+    {
+        // action body
+    }
 }
+
+
 
 
 

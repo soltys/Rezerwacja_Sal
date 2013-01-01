@@ -60,6 +60,17 @@ class LoginController extends Zend_Controller_Action
             $this->view->form = $form;
     }
 
+    /**public function isValid($data)
+    {
+        $ret = parent::isValid($data);
+
+        if ($this->password->getValue() != $this->repassword->getValue()) 
+        {
+            $this->repassword->addError("Entered passwords are not the same.");
+            return false;
+        }
+        return $ret;
+    }*/
     public function registrationAction()
     {
         $form = new Application_Form_Person();
