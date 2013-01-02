@@ -53,11 +53,6 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
-    public function logoutAction()
-    {
-        // action body
-    }
-
     public function afterregAction()
     {
         // action body

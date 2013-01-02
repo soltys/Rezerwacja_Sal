@@ -60,6 +60,17 @@ class LoginController extends Zend_Controller_Action
             $this->view->form = $form;
     }
 
+    /**public function isValid($data)
+    {
+        $ret = parent::isValid($data);
+
+        if ($this->password->getValue() != $this->repassword->getValue()) 
+        {
+            $this->repassword->addError("Entered passwords are not the same.");
+            return false;
+        }
+        return $ret;
+    }*/
     public function registrationAction()
     {
         $form = new Application_Form_Person();
@@ -88,15 +99,6 @@ class LoginController extends Zend_Controller_Action
     public function helpAction()
     {
         // action body
-    }
-
-    public function logoutAction()
-    {
-        $auth = Zend_Auth::getInstance();
-        $auth->clearIdentity();
-        
-        /** przekierowanie na stronę login/index **/
-        return $this->_helper->redirector('auth','index','default');
     }
 }
 

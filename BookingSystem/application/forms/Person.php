@@ -4,8 +4,11 @@ class Application_Form_Person extends Zend_Form
 {
     public function init()
     {
-       $this->setAction('login/registration/');
        $this->setMethod('post'); 
+       $view = Zend_Layout::getMvcInstance()->getView();
+        
+       $url = $view->url(array('controller' => 'login', 'action' => 'registration'), 'default');
+       $this->setAction($url);
        
        $this->addElement('text','username', array(
             'filters'    => array('StringTrim', 'StringToLower'),
@@ -39,5 +42,6 @@ class Application_Form_Person extends Zend_Form
            'validators' => array('Digits')));
 
        $this->addElement('submit', 'create', array('required' => false, 'ignore' => true,'label' => 'Create',));
+
     }
 }

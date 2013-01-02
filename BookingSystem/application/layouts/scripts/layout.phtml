@@ -12,6 +12,7 @@
 	<link rel="icon" type="image/ico" href="<?php echo $this->baseUrl('img/icon/icon.ico'); ?>" />
 	<title>Reservation</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/style.css'); ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/form.css'); ?>" />
 </head>
 
 <body>
@@ -30,12 +31,28 @@
 	
 	<div id="topnav">
 		<ul>
+                <?php $auth = Zend_Auth::getInstance(); ?>     
                         <li><a href="<?php echo $this->url(array(), 'home'); ?>">Strona główna</a></li>
 			<li><a href="<?php echo $this->url(array(), 'idea'); ?>">Idea</a></li>
 			<li><a href="<?php echo $this->url(array(), 'lectures'); ?>">Prelekcje</a></li>
 			<li><a href="<?php echo $this->url(array(), 'equipment'); ?>">Wyposażenie</a></li>
-			<li><a href="<?php echo $this->url(array(), 'login'); ?>">Logowanie</a></li>
-			<li><a href="<?php echo $this->url(array(), 'contact'); ?>">Kontakt</a></li>
+		<?php 
+                        if(!$auth->hasIdentity()) 
+                        {?> 
+                        <li><a href="<?php echo $this->url(array(), 'login'); ?>">Logowanie</a></li>
+			<?php } ?>
+                        <li><a href="<?php echo $this->url(array(), 'contact'); ?>">Kontakt</a></li>
+                <?php 
+                        
+                        // sprawdzenie czy użytkownik jest zalogowany
+                        if($auth->hasIdentity()) 
+                        {?>
+                            <li><a href="<?php echo $this->url(array(), 'event'); ?>">Dodaj wydarzenie</a></li>
+                            <li><a href="<?php echo $this->url(array(), 'logout'); ?>">Wyloguj</a></li>
+                        <?php }
+                ?>
+                        
+                        
 		</ul>
 	</div>
 	
@@ -52,7 +69,7 @@
     
     
 	<div id="footer">
-		<p>© Nazwa 2012 Wszelkie prawa zastrzeżone.</p>
+		<p>© Booking System 2012 Wszelkie prawa zastrzeżone </p>
 	</div>
 </div>
 </body>

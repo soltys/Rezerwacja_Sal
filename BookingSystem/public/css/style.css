@@ -1,6 +1,7 @@
 ﻿/* Global */
 body			{background-color:#C0C0C0; font-family:Arial, Helvetica, sans-serif}
 p 			{font-size: 13px;}
+a                       {text-decoration:none; margin: 0; font: bold;}
 
 /* Local */
 #wrapper		{width:900px; margin:0px auto; background-color:#ffffff;}

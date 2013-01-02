@@ -1,0 +1,52 @@
+dt {
+    float: left;
+    width: 300px;
+    background: #f3f3f3;
+    clear: both;
+    margin-top: 15px;
+    margin-right: 0;
+}
+dd {
+    margin-left: 0;
+    float: left;
+    width: 320px;
+    margin-top: 15px;
+}
+
+dd input {
+    width: 250px;
+    text-align: left;
+    border: 1px solid #949494;
+}
+
+dd input[type="checkbox"] {
+    width: 20px;
+    text-align:left;
+    border: 1px solid black;
+}
+
+#submit {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#create {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#add {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.errors {
+    color: red;
+    margin: 0px;
+}

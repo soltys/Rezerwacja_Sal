@@ -36,11 +36,15 @@
         </controllerFile>
         <controllerFile controllerName="Inlog">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="event"/>
+          <actionMethod actionName="logout"/>
+          <actionMethod actionName="afteradd"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="LoginForm"/>
         <formFile formName="Person"/>
+        <formFile formName="Event"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -53,7 +57,7 @@
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="UserDb"/>
           <dbTableFile dbTableName="PersonDb"/>
-          <dbTableFile dbTableName="EventsDb"/>
+          <dbTableFile dbTableName="Event"/>
         </dbTableDirectory>
         <modelFile modelName="Person"/>
         <modelFile modelName="PersonDb"/>
@@ -122,6 +126,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="afterreg"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Inlog">
+            <viewScriptFile forActionName="event"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Inlog">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Inlog">
+            <viewScriptFile forActionName="afteradd"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
