@@ -18,6 +18,7 @@
           <actionMethod actionName="logout"/>
           <actionMethod actionName="afterReg"/>
           <actionMethod actionName="afterreg"/>
+          <actionMethod actionName="getEvent"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Login">
@@ -135,6 +136,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Inlog">
             <viewScriptFile forActionName="afteradd"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="getEvent"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

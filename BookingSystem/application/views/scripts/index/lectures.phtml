@@ -19,10 +19,14 @@
         $('#calendar').fullCalendar({
             
             eventClick: function(calEvent, jsEvent, view) {
-
-//                 alert(calEvent.start.getTime());
-                 var date_str = calEvent.start.getHours()+":" + calEvent.start.getMinutes() + " - " + calEvent.end.getHours()+":" + calEvent.end.getMinutes()
-            
+                $.ajax(
+                {
+                    url: "/index/get-event",
+                    data: { id : calEvent.id },
+                    type: "POST",
+                    success: function(response){ $('#cont').html(jQuery.parseJSON(response).title) }
+                });
+                var date_str = calEvent.start.getHours()+":" + calEvent.start.getMinutes() + " - " + calEvent.end.getHours()+":" + calEvent.end.getMinutes()
                 $('#title').html(calEvent.title);
                 $('#time').html(date_str);
                 $('#myModal').reveal();
@@ -44,8 +48,7 @@
 <div id="myModal" class="reveal-modal">
         <h2 id="title">Awesome. I have it.</h2>
         <h4 id="time">From : to </h4>
-        <p class="lead">Your couch.  I it's mine.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p>
+        <p id= "cont" class="lead">Your couch.  I it's mine.</p>
         <a class="close-reveal-modal">&#215;</a>
 </div>
 <div id="content">

@@ -3,6 +3,7 @@
 class IndexController extends Zend_Controller_Action
 {
 
+    protected $events;
     public function init()
     {
         /* Initialize action controller here */
@@ -61,7 +62,25 @@ class IndexController extends Zend_Controller_Action
     {
         // action body
     }
+
+    public function getEventAction()
+    {
+
+        if($this->getRequest()->isXmlHttpRequest())
+        {
+            $this->_helper->layout->disableLayout();
+            $this->_helper->viewRenderer->setNoRender();
+            $id = $this->getRequest()->getParam('id');
+            $events = new Application_Model_DbTable_EventsDb();
+            echo json_encode($events->getEvent($id));
+                       
+        }
+    }
+
+
 }
+
+
 
 
 
