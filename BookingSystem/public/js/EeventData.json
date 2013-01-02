@@ -1,0 +1,13 @@
+[
+    {
+        "id":"1",
+        "title":"Ciekawe wydarzenie",
+        "start":"2012-12-12",
+        "end":"2012-12-22"},
+    {
+        "id":"3",
+        "title":"Bardzo ciekawewydarzenie",
+        "start":"2012-12-14",
+        "end":"2012-12-22"
+    }
+]	

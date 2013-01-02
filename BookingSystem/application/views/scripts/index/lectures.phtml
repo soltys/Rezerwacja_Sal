@@ -1,21 +1,46 @@
+
+<link rel='stylesheet' type='text/css' href='js/fullcalendar/fullcalendar.print.css' media='print' />
+
+<?php echo $this->jQuery(); ?>
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+    });
+</script>
+<script type='text/javascript'>
+
+    $(document).ready(function() {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+            
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            weekends: false,
+            editable: false,
+            timeFormat: 'H(:mm)',
+            events: <?php echo $this->eventsData ?>
+          
+        });
+		
+    });
+</script>
 <div id="content">
-	<h1>Znajdź interesującą Cię prelekcję...</h1>
-	<img src="img/kalendarz(prelekcje).JPG" height="288" width="450" />&nbsp;
-	<h3>Szczegóły [po wskazaniu konkretnego dnia]</h3>
-	<p>...</p>
-	<p>...</p>
-	<p>lub: Brak prelekcji w wybranym dniu.</p>
-        <p>...</p>
-        <p>...</p>
+    <div id='calendar'></div>
 </div>
-	
+
 <div id="rightSide">
-	<h3>Najbliższe prelekcje:</h3>
-	<p>10-12-2012: &quot;Java ...&quot;</p>
-	<p>15-12-2012: &quot;PHP...&quot;</p>
-	<p>19-01-2013: &quot;Scrum...&quot;</p>
-	<p>25-01-2013: &quot;Współczesne ....&quot;</p>
-	<img src="img/kalendarz.png" height="152" width="163" />
-	<h3>Sidebar Heading</h3>
-	<p>Korzenie Wydziału Informatyki sięgają roku 1971. Do pracy na Politechnice Szczecińskiej przychodzi Jerzy Sołdek. Wykorzystanie wyników prac i doświadczenia J. Sołdka wyznacza kierunki rozwoju informatyki.</p>
+    <h3>Najbliższe prelekcje:</h3>
+    <p>10-12-2012: &quot;Java ...&quot;</p>
+    <p>15-12-2012: &quot;PHP...&quot;</p>
+    <p>19-01-2013: &quot;Scrum...&quot;</p>
+    <p>25-01-2013: &quot;Współczesne ....&quot;</p>
+    <img src="img/kalendarz.png" height="152" width="163" />
+    <h3>Sidebar Heading</h3>
+    <p>Korzenie Wydziału Informatyki sięgają roku 1971. Do pracy na Politechnice Szczecińskiej przychodzi Jerzy Sołdek. Wykorzystanie wyników prac i doświadczenia J. Sołdka wyznacza kierunki rozwoju informatyki.</p>
 </div>

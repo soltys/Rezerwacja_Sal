@@ -53,9 +53,11 @@
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="UserDb"/>
           <dbTableFile dbTableName="PersonDb"/>
+          <dbTableFile dbTableName="EventsDb"/>
         </dbTableDirectory>
         <modelFile modelName="Person"/>
         <modelFile modelName="PersonDb"/>
+        <modelFile modelName="EventsDb"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
