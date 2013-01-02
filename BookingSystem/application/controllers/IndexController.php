@@ -34,9 +34,13 @@ class IndexController extends Zend_Controller_Action
         $view->jQuery()->addStylesheet('js/jquery/css/smoothness/jquery-ui-1.9.2.custom.css');
 //                $view->jQuery()->addStylesheet('js/fullcalendar/fullcalendar.print.css');
         $view->jQuery()->addStylesheet('js/fullcalendar/fullcalendar.css');
+        
+        $view->jQuery()->addStylesheet('js/reveal/reveal.css');
+        
         $view->jQuery()->setLocalPath('js/jquery/js/jquery-1.8.3.js');
         $view->jQuery()->setUiLocalPath('js/jquery/js/jquery-ui-1.9.2.custom.js');
-        $view->jQuery()->addJavascriptFile('js/fullcalendar/fullcalendar.js');
+        $view->jQuery()->addJavascriptFile('js/reveal/jquery.reveal.js');
+         $view->jQuery()->addJavascriptFile('js/fullcalendar/fullcalendar.js');
         $view->jQuery()->enable();
         $view->jQuery()->uiEnable();
         $events = new Application_Model_DbTable_EventsDb();

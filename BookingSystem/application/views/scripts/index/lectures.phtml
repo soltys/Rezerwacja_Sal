@@ -7,6 +7,7 @@
         $( "#datepicker" ).datepicker();
     });
 </script>
+
 <script type='text/javascript'>
 
     $(document).ready(function() {
@@ -18,7 +19,13 @@
         $('#calendar').fullCalendar({
             
             eventClick: function(calEvent, jsEvent, view) {
-                alert('Event: ' + calEvent.title);
+
+//                 alert(calEvent.start.getTime());
+                 var date_str = calEvent.start.getHours()+":" + calEvent.start.getMinutes() + " - " + calEvent.end.getHours()+":" + calEvent.end.getMinutes()
+            
+                $('#title').html(calEvent.title);
+                $('#time').html(date_str);
+                $('#myModal').reveal();
             },
             header: {
                 left: 'prev,next today',
@@ -34,8 +41,16 @@
 		
     });
 </script>
+<div id="myModal" class="reveal-modal">
+        <h2 id="title">Awesome. I have it.</h2>
+        <h4 id="time">From : to </h4>
+        <p class="lead">Your couch.  I it's mine.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p>
+        <a class="close-reveal-modal">&#215;</a>
+</div>
 <div id="content">
     <div id='calendar'></div>
+
 </div>
 
 <div id="rightSide">
