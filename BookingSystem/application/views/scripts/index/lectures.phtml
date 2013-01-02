@@ -14,8 +14,12 @@
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-            
+        allDay: false;    
         $('#calendar').fullCalendar({
+            
+            eventClick: function(calEvent, jsEvent, view) {
+                alert('Event: ' + calEvent.title);
+            },
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -23,7 +27,7 @@
             },
             weekends: false,
             editable: false,
-            timeFormat: 'H(:mm)',
+            timeFormat: 'h:mm{ - h:mm}',
             events: <?php echo $this->eventsData ?>
           
         });

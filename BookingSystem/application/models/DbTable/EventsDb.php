@@ -15,7 +15,7 @@ class Application_Model_DbTable_EventsDb extends Zend_Db_Table_Abstract
     public function getEventsJson()
     {
         $select = $this->select();
-        $select->from($this,(array('title','start','end','allDay')));
+        $select->from($this,(array('title','start','end')));
         return json_encode($this->fetchAll($select)->toArray(),JSON_NUMERIC_CHECK);
         
     }
