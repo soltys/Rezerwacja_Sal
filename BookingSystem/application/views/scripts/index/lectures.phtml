@@ -26,6 +26,7 @@
                     type: "POST",
                     success: function(response){ 
                         var parsedResponse = jQuery.parseJSON(response);
+                        alert(parsedResponse.toString());
                         $('#fullTitle').html(parsedResponse.fullTitle)
                         $('#start').html(parsedResponse.start)
                         $('#end').html(parsedResponse.end)
@@ -55,13 +56,13 @@
     });
 </script>
 <div id="myModal" class="reveal-modal">
-    <div id ="fullTitle" class ="fullTitle"></div>
-    <div id ="start" class ="start"></div>
-    <div id ="end" class ="end"></div>
-    <div id ="where" class ="where"></div>
-    <div id ="description" class ="description"></div>
-    <div id ="additional" class ="additional"></div>
-    <div id ="authors" class ="authors"></div>
+    <div id ="fullTitle" class ="fullTitle">Full title</div>
+    <div id ="start" class ="start">Start </div>
+    <div id ="end" class ="end">Stop </div>
+    <div id ="where" class ="where">Where</div>
+    <div id ="description" class ="description">Descritpion</div>
+    <div id ="additional" class ="additional">Additional</div>
+    <div id ="authors" class ="authors">Authors</div>
 </div>
 <div id="content">
     <div id='calendar'></div>
