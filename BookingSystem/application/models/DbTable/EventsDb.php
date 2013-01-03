@@ -51,6 +51,18 @@ class Application_Model_DbTable_EventsDb extends Zend_Db_Table_Abstract
         $this->delete('id = ' . $id);
         
     }
+    
+    public function getUpcomingEvents($howMany)
+    {
+        if($howMany > 0 )
+            $select = $this->select()
+            ->from($this,
+                    array('title', 'start', 'end', 'id'))
+            ->where("start > DATE_FORMAT(NOW(),'%Y-%m-%d %T')")
+            ->order ('start')
+            ->limit ($howMany);
+        return ($this->fetchAll($select)->toArray());
+    }
 
 }
 
