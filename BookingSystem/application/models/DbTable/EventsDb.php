@@ -20,11 +20,16 @@ class Application_Model_DbTable_EventsDb extends Zend_Db_Table_Abstract
         
     }
 
-    public function addEvent($title, $start, $end) {
+    public function addEvent($title,$fullTitle, $start,$where, $end, $description, $additional,$authors  ) {
         $data = array(
             'title' => $title,
+            'fullTitle' => $fullTitle,
             'start' => $start,
             'end' => $end,
+            'where' => $where,
+            'description' => $description,
+            'additional' => $additional,
+            'authors' => $authors,
         );
         $this->insert($data);
     }
@@ -34,6 +39,10 @@ class Application_Model_DbTable_EventsDb extends Zend_Db_Table_Abstract
             'title' => $title,
             'start' => $start,
             'end' => $end,
+            'where' => $where,
+            'description' => $description,
+            'additional' => $additional,
+            'authors' => $authors,
         );
         $this->update($data, 'id = ' . (int) $id);
     }

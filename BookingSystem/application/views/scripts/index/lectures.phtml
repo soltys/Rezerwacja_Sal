@@ -24,7 +24,16 @@
                     url: "/index/get-event",
                     data: { id : calEvent.id },
                     type: "POST",
-                    success: function(response){ $('#cont').html(jQuery.parseJSON(response).title) }
+                    success: function(response){ 
+                        var parsedResponse = jQuery.parseJSON(response);
+                        $('#fullTitle').html(parsedResponse.fullTitle)
+                        $('#start').html(parsedResponse.start)
+                        $('#end').html(parsedResponse.end)
+                        $('#where').html(parsedResponse.where)
+                        $('#descritpion').html(parsedResponse.descritpion)
+                        $('#additional').html(parsedResponse.additional)
+                        $('#authors').html(parsedResponse.authors)
+                    }
                 });
                 var date_str = calEvent.start.getHours()+":" + calEvent.start.getMinutes() + " - " + calEvent.end.getHours()+":" + calEvent.end.getMinutes()
                 $('#title').html(calEvent.title);
@@ -46,10 +55,13 @@
     });
 </script>
 <div id="myModal" class="reveal-modal">
-        <h2 id="title">Awesome. I have it.</h2>
-        <h4 id="time">From : to </h4>
-        <p id= "cont" class="lead">Your couch.  I it's mine.</p>
-        <a class="close-reveal-modal">&#215;</a>
+    <div id ="fullTitle" class ="fullTitle"></div>
+    <div id ="start" class ="start"></div>
+    <div id ="end" class ="end"></div>
+    <div id ="where" class ="where"></div>
+    <div id ="description" class ="description"></div>
+    <div id ="additional" class ="additional"></div>
+    <div id ="authors" class ="authors"></div>
 </div>
 <div id="content">
     <div id='calendar'></div>
