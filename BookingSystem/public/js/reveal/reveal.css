@@ -15,7 +15,7 @@
 		}
 	
 	.reveal-modal {
-		visibility: hidden;
+                visibility: hidden;
 		top: 100px; 
 		left: 50%;
 		margin-left: -300px;
@@ -48,7 +48,43 @@
 		font-weight: bold;
 		cursor: pointer;
 		} 
-	/*
+	
+        .reveal-modal .fullTitle {
+                text-align: center;
+                padding: 15px 0px;
+                color: #36c;
+                font-size: xx-large;
+                }  
+
+         .reveal-modal .time {  
+                font-size: x-large;
+                text-align: center;
+                }
+            
+         .reveal-modal .where {
+                font-size: x-large;
+                text-align: center;
+                padding: 10px; 
+                }  
+                
+         .reveal-modal .description {
+                color: #36c;
+                font-size: large;
+                padding: 30px;
+                }  
+         .reveal-modal .additional {
+                color: #36c;
+                font-size: large;
+                padding: 30px;
+                } 
+                
+         .reveal-modal .authors {
+                font-size: large;
+                padding: 30px;
+                margin-left: 250px;
+                color: dimgray;
+                } 
+        /*
 		
 	NOTES
 	

@@ -23,6 +23,7 @@ class InlogController extends Zend_Controller_Action
         // action body
     }
 
+    
     public function eventAction()
     {
         $form = new Application_Form_Event();
@@ -31,13 +32,13 @@ class InlogController extends Zend_Controller_Action
         if($this->_request->isPost())
         {
             $post_data = $this->_request->getPost();
-            $EventDb = new Application_Model_DbTable_Event();
+            $EventsDb = new Application_Model_DbTable_EventsDb();
 
             //isValid() - argument przyjmuje tablice z danymi przesłanymi przez POST
             if($form->isValid($post_data))
             {
-                //unset($post_data['add']);
-                //$PersonDb->insert($post_data);
+                unset($post_data['add']);
+                $EventsDb->insert($post_data);
                 return $this->_helper->redirector('afteradd','inlog','default');
             }
             else

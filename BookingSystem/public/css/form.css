@@ -25,6 +25,8 @@ dd input[type="checkbox"] {
     border: 1px solid black;
 }
 
+.textarea {width: 245px; height: 150px}
+
 #submit {
     width: 100px;
     text-align: center;

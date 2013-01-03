@@ -2,6 +2,11 @@
 <link rel='stylesheet' type='text/css' href='js/fullcalendar/fullcalendar.print.css' media='print' />
 
 <?php echo $this->jQuery(); ?>
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+    });
+</script>
 
 <script type='text/javascript'>
 
@@ -10,40 +15,31 @@
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        allDay: false;  
-            function  eventClicked(calEvent) {
-            $.ajax(
-            {
-                url: "/index/get-event",
-                data: { id : calEvent.id },
-                type: "POST",
-                success: function(response){ 
-                    var parsedResponse = jQuery.parseJSON(response);
-//                    var date_str = parsedResponse.start.getHours()+":" + parsedResponse.start.getMinutes() + " - " + parsedResponse.end.getHours()+":" + parsedResponse.end.getMinutes()
-                    $('#fullTitle').html(parsedResponse.fullTitle)
-                    $('#start').html(parsedResponse.start)
-                    $('#end').html(parsedResponse.end)
-                    $('#where').html(parsedResponse.where)
-                    $('#descritpion').html(parsedResponse.descritpion)
-                    $('#additional').html(parsedResponse.additional)
-                    $('#authors').html(parsedResponse.authors)
-                    $('#myModal').reveal();
-                    
-                }
-            });
-            }
-        $('#eventData*').click(function(e) {
-            
-            var eventImitation = {'id':($(this).attr("href"))};
-            
-            eventClicked(eventImitation);
-            e.preventDefault();
-            
-        });
+        allDay: false;    
         $('#calendar').fullCalendar({
             
-            eventClick: function(calEvent) {
-                    eventClicked(calEvent);
+            eventClick: function(calEvent, jsEvent, view) {
+                $.ajax(
+                {
+                    url: "/index/get-event",
+                    data: { id : calEvent.id },
+                    type: "POST",
+                    success: function(response){ 
+                        var parsedResponse = jQuery.parseJSON(response);
+                        alert(parsedResponse.toString());
+                        $('#fullTitle').html(parsedResponse.fullTitle)
+                        $('#start').html(parsedResponse.start)
+                        $('#end').html(parsedResponse.end)
+                        $('#where').html(parsedResponse.where)
+                        $('#descritpion').html(parsedResponse.descritpion)
+                        $('#additional').html(parsedResponse.additional)
+                        $('#authors').html(parsedResponse.authors)
+                    }
+                });
+                var date_str = calEvent.start.getHours()+":" + calEvent.start.getMinutes() + " - " + calEvent.end.getHours()+":" + calEvent.end.getMinutes()
+                $('#title').html(calEvent.title);
+                $('#time').html(date_str);
+                $('#myModal').reveal();
             },
             header: {
                 left: 'prev,next today',
@@ -61,8 +57,7 @@
 </script>
 <div id="myModal" class="reveal-modal">
     <div id ="fullTitle" class ="fullTitle">Full title</div>
-    <div id ="start" class ="start">Start </div>
-    <div id ="end" class ="end">Stop </div>
+    <div id ="time" class ="time">Start : Stop </div>
     <div id ="where" class ="where">Where</div>
     <div id ="description" class ="description">Descritpion</div>
     <div id ="additional" class ="additional">Additional</div>
@@ -70,22 +65,16 @@
 </div>
 <div id="content">
     <div id='calendar'></div>
+
 </div>
 
 <div id="rightSide">
-    <?php 
-    if(count($this->upcomingEvents) >0 )
-    {
-     echo "<h3>Najbliższe prelekcje:</h3>";
-    
-    foreach ($this->upcomingEvents as $event) {
-        $date = new Zend_Date($event["start"],'dd.MM.yyyy');
-        echo "<p id='eventData' href=".$event["id"]." >"
-             .$date->toString(Zend_Date::DATE_MEDIUM).
-             " :</br> &nbsp&nbsp<b>".$event["title"]."</b></p>";
-    }
-    }
-    ?>
+    <h3>Najbliższe prelekcje:</h3>
+    <p>10-12-2012: &quot;Java ...&quot;</p>
+    <p>15-12-2012: &quot;PHP...&quot;</p>
+    <p>19-01-2013: &quot;Scrum...&quot;</p>
+    <p>25-01-2013: &quot;Współczesne ....&quot;</p>
+    <img src="img/kalendarz.png" height="152" width="163" />
     <h3>Sidebar Heading</h3>
     <p>Korzenie Wydziału Informatyki sięgają roku 1971. Do pracy na Politechnice Szczecińskiej przychodzi Jerzy Sołdek. Wykorzystanie wyników prac i doświadczenia J. Sołdka wyznacza kierunki rozwoju informatyki.</p>
 </div>
