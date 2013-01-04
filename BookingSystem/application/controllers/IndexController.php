@@ -2,8 +2,7 @@
 
 class IndexController extends Zend_Controller_Action
 {
-
-    protected $events;
+    public  $upcomingEventsCount = 5;
     public function init()
     {
         /* Initialize action controller here */
@@ -45,6 +44,7 @@ class IndexController extends Zend_Controller_Action
         $view->jQuery()->enable();
         $view->jQuery()->uiEnable();
         $events = new Application_Model_DbTable_EventsDb();
+        $this->view->upcomingEvents =$events->getUpcomingEvents($this->upcomingEventsCount);
         $this->view->eventsData = $events->getEventsJson();
     }
 

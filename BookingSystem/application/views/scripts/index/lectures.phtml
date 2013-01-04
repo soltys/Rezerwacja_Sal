@@ -2,12 +2,6 @@
 <link rel='stylesheet' type='text/css' href='js/fullcalendar/fullcalendar.print.css' media='print' />
 
 <?php echo $this->jQuery(); ?>
-<script>
-    $(function() {
-        $( "#datepicker" ).datepicker();
-    });
-</script>
-
 <script type='text/javascript'>
 
     $(document).ready(function() {
@@ -50,7 +44,6 @@
             editable: false,
             timeFormat: 'h:mm{ - h:mm}',
             events: <?php echo $this->eventsData ?>
-          
         });
 		
     });
@@ -68,13 +61,20 @@
 
 </div>
 
-<div id="rightSide">
-    <h3>Najbliższe prelekcje:</h3>
-    <p>10-12-2012: &quot;Java ...&quot;</p>
-    <p>15-12-2012: &quot;PHP...&quot;</p>
-    <p>19-01-2013: &quot;Scrum...&quot;</p>
-    <p>25-01-2013: &quot;Współczesne ....&quot;</p>
-    <img src="img/kalendarz.png" height="152" width="163" />
-    <h3>Sidebar Heading</h3>
-    <p>Korzenie Wydziału Informatyki sięgają roku 1971. Do pracy na Politechnice Szczecińskiej przychodzi Jerzy Sołdek. Wykorzystanie wyników prac i doświadczenia J. Sołdka wyznacza kierunki rozwoju informatyki.</p>
-</div>
+ <div id="rightSide">
+    <?php 
+    if(count($this->upcomingEvents) >0 )
+    {
+     echo "<h3>Najbliższe prelekcje:</h3>";
+     foreach ($this->upcomingEvents as $event) {
+        $date = new Zend_Date($event["start"],'dd.MM.yyyy');
+        echo "<p id='eventData' href=".$event["id"]." >"
+             .$date->toString(Zend_Date::DATE_MEDIUM).
+             " :</br> &nbsp&nbsp<b>".$event["title"]."</b></p>";
+        }
+    }
+    ?>
+     <h3>Sidebar Heading</h3>
+     <p>Korzenie Wydziału Informatyki sięgają roku 1971. Do pracy na Politechnice Szczecińskiej przychodzi Jerzy Sołdek. Wykorzystanie wyników prac i doświadczenia J. Sołdka wyznacza kierunki rozwoju informatyki.</p>
+ </div>
+
